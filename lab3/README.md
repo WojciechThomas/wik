@@ -55,7 +55,7 @@
    ```text
    $ docker run -d --name myapache -p 8080:8080 -p 8443:8443 -v /vagrant:/app bitnami/apache
    ```
-   Usuń kontener jak poprzednio, ale teraz zamiast identyfikatora użyj nazwy obrazu `apache`, np. `docker stop apache`
+   Usuń kontener jak poprzednio, ale teraz zamiast identyfikatora użyj nazwy obrazu `myapache`, np. `docker stop myapache`
    Otwórz w przeglądarce strony: `http://localhost:8080/` i `https://localhost:8443`
 
 ## Budowa własnego kontenera
