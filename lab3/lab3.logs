@@ -1,0 +1,158 @@
+stud@ubuntu:~/wik/lab3$ vagrant ssh
+Welcome to Ubuntu 18.04 LTS (GNU/Linux 4.15.0-23-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Sat Jun  1 14:01:45 UTC 2019
+
+  System load:  0.17              Processes:              132
+  Usage of /:   8.6% of 61.80GB   Users logged in:        0
+  Memory usage: 17%               IP address for eth0:    10.0.2.15
+  Swap usage:   0%                IP address for docker0: 172.17.0.1
+
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+557 packages can be updated.
+251 updates are security updates.
+
+
+vagrant@vagrant:~$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+1b930d010525: Pull complete 
+Digest: sha256:0e11c388b664df8a27a901dce21eb89f11d8292f7fca1b3e3c4321bf7897bffe
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+vagrant@vagrant:~$ 
+vagrant@vagrant:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+vagrant@vagrant:~$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                          PORTS               NAMES
+b2be1115c308        hello-world         "/hello"            About a minute ago   Exited (0) About a minute ago                       upbeat_lederberg
+vagrant@vagrant:~$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED              STATUS                          PORTS               NAMES
+b2be1115c308        hello-world         "/hello"            About a minute ago   Exited (0) About a minute ago                       upbeat_lederberg
+vagrant@vagrant:~$ docker rm upbeat_lederberg
+upbeat_lederberg
+vagrant@vagrant:~$ docker ps -a
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+vagrant@vagrant:~$ docker run -ti  ubuntu:latest /bin/bash
+Unable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+6abc03819f3e: Pull complete 
+05731e63f211: Pull complete 
+0bd67c50d6be: Pull complete 
+Digest: sha256:f08638ec7ddc90065187e7eabdfac3c96e5ff0f6b2f1762cf31a4f49b53000a5
+Status: Downloaded newer image for ubuntu:latest
+root@310521911e0a:/# uname -r
+4.15.0-23-generic
+root@310521911e0a:/# cat /etc/os-release 
+NAME="Ubuntu"
+VERSION="18.04.2 LTS (Bionic Beaver)"
+ID=ubuntu
+ID_LIKE=debian
+PRETTY_NAME="Ubuntu 18.04.2 LTS"
+VERSION_ID="18.04"
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+VERSION_CODENAME=bionic
+UBUNTU_CODENAME=bionic
+root@310521911e0a:/# apt update
+Get:1 http://archive.ubuntu.com/ubuntu bionic InRelease [242 kB]
+Get:2 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Get:3 http://archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:4 http://archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:5 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 Packages [4168 B]
+Get:6 http://security.ubuntu.com/ubuntu bionic-security/main amd64 Packages [463 kB]
+Get:7 http://archive.ubuntu.com/ubuntu bionic/universe amd64 Packages [11.3 MB]  
+Get:8 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 Packages [320 kB]   
+Get:9 http://security.ubuntu.com/ubuntu bionic-security/restricted amd64 Packages [5436 B] 
+Get:10 http://archive.ubuntu.com/ubuntu bionic/multiverse amd64 Packages [186 kB]          
+Get:11 http://archive.ubuntu.com/ubuntu bionic/restricted amd64 Packages [13.5 kB]
+Get:12 http://archive.ubuntu.com/ubuntu bionic/main amd64 Packages [1344 kB]
+Get:13 http://archive.ubuntu.com/ubuntu bionic-updates/main amd64 Packages [808 kB]
+Get:14 http://archive.ubuntu.com/ubuntu bionic-updates/restricted amd64 Packages [10.8 kB]
+Get:15 http://archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 Packages [7236 B]
+Get:16 http://archive.ubuntu.com/ubuntu bionic-updates/universe amd64 Packages [1210 kB]
+Get:17 http://archive.ubuntu.com/ubuntu bionic-backports/universe amd64 Packages [3906 B]
+Get:18 http://archive.ubuntu.com/ubuntu bionic-backports/main amd64 Packages [2496 B]
+Fetched 16.2 MB in 2s (9128 kB/s)                     
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+4 packages can be upgraded. Run 'apt list --upgradable' to see them.
+root@310521911e0a:/# apt upgrade
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Calculating upgrade... Done
+The following packages will be upgraded:
+  bash debconf libgnutls30 libseccomp2
+4 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1423 kB of archives.
+After this operation, 0 B of additional disk space will be used.
+Do you want to continue? [Y/n] n
+Abort.
+root@310521911e0a:/# hostname
+310521911e0a
+root@310521911e0a:/# docker run -d --name myapache -p 8080:8080 -p 8443:8443 -v /vagrant:/app bitnami/apache
+bash: docker: command not found
+root@310521911e0a:/# logout
+bash: logout: not login shell: use `exit'
+root@310521911e0a:/# exit
+exit
+vagrant@vagrant:~$ docker run -d --name myapache -p 8080:8080 -p 8443:8443 -v /vagrant:/app bitnami/apache
+Unable to find image 'bitnami/apache:latest' locally
+latest: Pulling from bitnami/apache
+59f6538c83c2: Pull complete 
+1dbd14498691: Pull complete 
+5bc1e8401663: Pull complete 
+8dbac7e8294c: Pull complete 
+817f29753d7c: Pull complete 
+dc11fad2258b: Pull complete 
+23b48838ccc3: Pull complete 
+234ae6f43b75: Pull complete 
+df312d8b29cc: Pull complete 
+aa826d4a5124: Pull complete 
+9fd30ee8b6c2: Pull complete 
+68ed4a34ae78: Pull complete 
+77a10a7b1f51: Pull complete 
+54b471f58b8d: Pull complete 
+Digest: sha256:4d7c7cd2d3438d345502a57b99d7a96bb409e88c4ba9f44daf395426ed2577de
+Status: Downloaded newer image for bitnami/apache:latest
+a3adfd374456721ec0a4e49a680924f216b9e5855ff32d4e59c2f61fc81bf58f
+vagrant@vagrant:~$ 
+vagrant@vagrant:~$ 
+vagrant@vagrant:~$ 
+vagrant@vagrant:~$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+a3adfd374456        bitnami/apache      "/app-entrypoint.sh …"   14 seconds ago      Up 9 seconds        0.0.0.0:8080->8080/tcp, 0.0.0.0:8443->8443/tcp   myapache
+vagrant@vagrant:~$ 
