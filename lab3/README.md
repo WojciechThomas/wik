@@ -23,9 +23,9 @@
    ```
 5. Uruchom testowo kontenery popularnych systemów :
    ```text
-   $ docker run --rm -ti ubuntu:latest /bin/ bash
-   $ docker run --rm -ti fedora:latest /bin/ bash
-   $ docker run --rm -ti centos:latest /bin/ bash
+   $ docker run --rm -ti ubuntu:latest /bin/bash
+   $ docker run --rm -ti fedora:latest /bin/bash
+   $ docker run --rm -ti centos:latest /bin/bash
    ```
    Za każdym razem zobacz nazwę maszyny: `hostname` i zakończ pracę przez `<Ctrl-D>`, dodatkowo możesz przetestować więcej opcji:
    ```text
