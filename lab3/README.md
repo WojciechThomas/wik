@@ -64,7 +64,7 @@
 2. Zbuduj kontener użwając pliku Dockerfile i uruchom go:
    ```text
    $ cd /vagrant
-   $ docker built -t myapacheimage .
+   $ docker build -t myapacheimage .
    $ docker run -d -p 8080:8080 myapacheimage
    ```
    Zobacz że tym razem nowy kontener nie jest łączony z systemem plików (opcja `-v`) a mimo to udostępnia naszą stronę.
