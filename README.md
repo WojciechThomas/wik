@@ -7,3 +7,4 @@
    $ cd wik
    ```
 3. Opisz poszczególnych ćwiczeń i potrzebne pliki znajdziesz w podkatalogach lab1-lab3
+
